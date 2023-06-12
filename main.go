@@ -36,7 +36,8 @@ func main() {
 		w.Write([]byte("healthy!"))
 	})
 
-	if err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil); err != nil {
-		panic(err)
+	err := http.ListenAndServe(fmt.Sprintf(":%s", port), nil)
+	if err != nil {
+		log.Println("error starting server: ", err)
 	}
 }
